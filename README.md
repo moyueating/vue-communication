@@ -1,8 +1,10 @@
-# vuex
+# vue组件之间各种的通信方式
+## 1、父与子之间的通信（最简单）
+## 2、任意两个组件之间的通信
+## 3、Vuex
 
-> vuex
 
-## Build Setup
+## 查看demo方式
 
 ``` bash
 # install dependencies
@@ -18,4 +20,4 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
