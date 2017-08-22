@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" >
+  <div>
       这是one组件
       <button @click="commit">给two组件发送信息</button>
       <p>  {{ message }}</p>
