@@ -17,9 +17,9 @@ export default new Router({
         component: any => require(['@/components/any/pro'], any)
     },
     {
-        path: '/vx',
-        name: 'vx',
-        component: vx => require(['@/components/vx/vx'], vx)
+        path: '/shop',
+        name: 'shop',
+        component: shop => require(['@/components/shop/shop'], shop)
     }
   ]
 })
