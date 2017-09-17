@@ -1,25 +1,20 @@
 {
-    "allParts": ["cpu","显卡","主板","内存"],
-    "cpuMap": [
+    "allParts": [
         {
-            "name": "i3-4160",
-            "price": "500"
-        },
-        {
-            "name": "i5-7500",
-            "price": "1500"
-        },
-        {
-            "name": "i7-6700",
+            "name": "cpu",
             "price": "2000"
         },
         {
-            "name": "i7-7700K",
-            "price": "2500"
+            "name": "显卡",
+            "price": "3000"
         },
         {
-            "name": "i9-7900K",
-            "price": "7999"
+            "name": "内存",
+            "price": "1000"
+        },
+        {
+            "name": "主板",
+            "price": "1000"
         }
     ]
 }
