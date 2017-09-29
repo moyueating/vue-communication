@@ -56,7 +56,7 @@ export default {
             }
         },
         addDev () {
-            console.log('dev');
+            console.log('dev_master');
         }
     },
     created () {
