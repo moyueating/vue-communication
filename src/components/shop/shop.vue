@@ -54,6 +54,9 @@ export default {
             if(this.count[product.name] && this.count[product.name]>0){
                 this.count[product.name]--;
             }
+        },
+        addDev () {
+            console.log('dev');
         }
     },
     created () {
