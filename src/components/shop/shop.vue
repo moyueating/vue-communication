@@ -8,8 +8,9 @@
             <ul class="choose">
                 <li v-for="part in allParts" :key="part.name">
                     <button @click="minus(part)">minus</button>
-                    <button>{{ count[part.name] || 0}}</button>
+                    <strong>{{ count[part.name] || 0}}</strong>
                     <button @click="plus(part)">plus</button>
+                    <button>点击购买</button>
                 </li>
             </ul>
         </div>
@@ -20,7 +21,7 @@
             <li v-for="ch in choose" :key="ch.name">
                 <span>cpu</span>
                 <span>数量: 2</span>
-                <span>总价: 100</span>
+                <span>总价: {{  $store.state.totalPrice }}</span>
 
             </li>
         </ul>
@@ -39,7 +40,7 @@ export default {
             choose: [],
             count: {
                 
-            }
+            },
         }
     },
     methods: {
@@ -54,13 +55,11 @@ export default {
             if(this.count[product.name] && this.count[product.name]>0){
                 this.count[product.name]--;
             }
-        },
-        addDev () {
-            console.log('dev_feature1');
         }
     },
     created () {
         this.allParts = mock.allParts;
+
     }
 }
 </script>
@@ -115,6 +114,9 @@ export default {
     }
     .panel ul.choose li {
         justify-content: space-around;
+    }
+    .panel ul.choose li strong {
+        color: #2A90DE;
     }
     .panel ul.choose li span:nth-child(1){
         flex-grow: 2;

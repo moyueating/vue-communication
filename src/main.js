@@ -3,39 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Vuex from 'vuex'
+import store from './store'
 
-Vue.use(Vuex)
 
 Vue.config.productionTip = false
 
 
 
-// const store = new Vuex.Store({
-//     state: {
-//         count: 0
-//     },
-//     mutations: {
-//         increment(state, payload) {
-//             state.count += payload.step;
-//         },
-//         minus(state, payload) {
-//             state.count -= payload.step;
-//         }
-//     },
-//     actions: {
-//         minus(context, payload) {
-//             setTimeout(() => {
-//                 context.commit('minus', payload);
-//             }, 1000)
-//         }
-//     }
-// })
-
-
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
     components: { App }
 })
