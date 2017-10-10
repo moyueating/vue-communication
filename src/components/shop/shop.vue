@@ -10,7 +10,7 @@
                     <button @click="minus(part)">minus</button>
                     <strong>{{ count[part.name] || 0}}</strong>
                     <button @click="plus(part)">plus</button>
-                    <button>点击购买</button>
+                    <button @click="addToCart(part)">点击购买</button>
                 </li>
             </ul>
         </div>
@@ -18,10 +18,10 @@
 
         <h3 style="marginTop: 50px;">购物车</h3>
         <ul>
-            <li v-for="ch in choose" :key="ch.name">
-                <span>cpu</span>
-                <span>数量: 2</span>
-                <span>总价: {{  $store.state.totalPrice }}</span>
+            <li v-for="shopCart in shopCartList" :key="shopCart.name">
+                <span>{{ shopCart.name }}</span>
+                <span>数量:{{ shopCart.num }}</span>
+                <span>总价: {{  shopCart.totalPrice }}</span>
 
             </li>
         </ul>
@@ -32,12 +32,12 @@
 
 <script>
 import mock from './mock.JSON'
+import * as types from '../../store/mutation-types'
 export default {    
     name: 'shop',
     data () {
         return {
             allParts: [],
-            choose: [],
             count: {
                 
             },
@@ -55,11 +55,21 @@ export default {
             if(this.count[product.name] && this.count[product.name]>0){
                 this.count[product.name]--;
             }
+        },
+        addToCart (product) {
+            this.$store.commit(types.ADD_TO_SHOPCART,product);
+        }
+    },
+    computed: {
+        totalPrice (){
+            return this.$store.state.totalPrice;
+        },
+        shopCartList (){
+            return this.$store.state.shopCartList;
         }
     },
     created () {
         this.allParts = mock.allParts;
-
     }
 }
 </script>

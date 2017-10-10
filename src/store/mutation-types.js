@@ -1,0 +1,2 @@
+export const ADD_TO_SHOPCART = 'ADD_TO_SHOPCART'
+export const DEL_TO_SHOPCART = 'DEL_TO_SHOPCART'
