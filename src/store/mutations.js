@@ -8,7 +8,7 @@ export default {
         state.shopCartList.forEach( (pro) => {
             allPro.push(pro.name);
         })
-        if(!payload.num){
+        if(!payload.num && payload.num != 0){
             Vue.set(payload,'num',1);
         }
         if(!payload.totalPrice){
@@ -25,7 +25,20 @@ export default {
                 }
             })
         }
-        console.log('this is add to shop cart!');
+    },
+    [types.MINUS_TO_SHOPCART](state,payload){
+        let popIndex;
+        state.shopCartList.forEach( (pro,index) => {
+            if(pro.name == payload.name){
+                if(pro.num > 1){
+                    pro.num -- ;
+                    pro.totalPrice = pro.num * pro.price;
+                }else{
+                    popIndex = index;                    
+                }
+            }
+        })
+        popIndex == 0  && state.shopCartList.splice(popIndex,1);
     }
 
 

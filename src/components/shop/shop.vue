@@ -7,10 +7,9 @@
             </ul>
             <ul class="choose">
                 <li v-for="part in allParts" :key="part.name">
-                    <button @click="minus(part)">minus</button>
+                    <button @click="minus(part)">-</button>
                     <strong>{{ count[part.name] || 0}}</strong>
-                    <button @click="plus(part)">plus</button>
-                    <button @click="addToCart(part)">点击购买</button>
+                    <button @click="add(part)">+</button>
                 </li>
             </ul>
         </div>
@@ -44,21 +43,22 @@ export default {
         }
     },
     methods: {
-        plus (product) {
+        add (product) {
             if(this.count[product.name]){
                 this.count[product.name]++;
             }else{
                 this.$set(this.count,product.name,1);
             }
+            this.$store.commit(types.ADD_TO_SHOPCART,product);
         },
         minus (product) {
-            if(this.count[product.name] && this.count[product.name]>0){
-                this.count[product.name]--;
+            if(this.count[product.name] > 0){
+                if(this.count[product.name] && this.count[product.name]>0){
+                    this.count[product.name]--;
+                }
+                this.$store.commit(types.MINUS_TO_SHOPCART,product);
             }
         },
-        addToCart (product) {
-            this.$store.commit(types.ADD_TO_SHOPCART,product);
-        }
     },
     computed: {
         totalPrice (){
