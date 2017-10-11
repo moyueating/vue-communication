@@ -39,7 +39,6 @@ export default {
             }
         })
         popIndex == 0  && state.shopCartList.splice(popIndex,1);
-        console.log(111);
     }
 
 
