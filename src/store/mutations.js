@@ -25,6 +25,9 @@ export default {
                 }
             })
         }
+        state.totalPrice = state.shopCartList.reduce((sum,value) => {
+            return sum + value.totalPrice;        
+        },0)
     },
     [types.MINUS_TO_SHOPCART](state,payload){
         let popIndex;

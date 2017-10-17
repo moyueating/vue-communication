@@ -15,8 +15,8 @@
         </div>
 
 
-        <h3 style="marginTop: 50px;">购物车</h3>
-        <ul>
+        <h3 style="marginTop: 50px;">购物车总价：{{ totalPrice }}</h3>
+        <ul class="shopCart">
             <li v-for="shopCart in shopCartList" :key="shopCart.name">
                 <span>{{ shopCart.name }}</span>
                 <span>数量:{{ shopCart.num }}</span>
@@ -88,7 +88,8 @@ export default {
     }
     ul,
     ul.choose li,
-    ul.partMap li{
+    ul.partMap li,
+    .panel ul.shopCart{
         display: flex;
         display: -webkit-flex;
         justify-content: center;
@@ -137,6 +138,8 @@ export default {
     .panel ul.choose li span:nth-child(3){
         flex-grow: 2;
     }
-
+    ul.shopCart {
+        flex-direction: column;
+    }
 </style>
 

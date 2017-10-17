@@ -2,19 +2,19 @@
     "allParts": [
         {
             "name": "cpu",
-            "price": "2000"
+            "price": 2000
         },
         {
             "name": "显卡",
-            "price": "3000"
+            "price": 3000
         },
         {
             "name": "内存",
-            "price": "1000"
+            "price": 1000
         },
         {
             "name": "主板",
-            "price": "1000"
+            "price": 1000
         }
     ]
 }
