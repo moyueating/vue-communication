@@ -9,8 +9,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         totalPrice: 0,
-        shopCartList: [],
-        name: 'zkj'
+        shopCartList: []
     },
-    mutations
+    mutations,
+    getters
 })

@@ -2,10 +2,14 @@
     "allParts": [
         {
             "name": "cpu",
-            "price": 2000
+            "price": 4000
         },
         {
             "name": "显卡",
+            "price": 5000
+        },
+        {
+            "name": "显示器",
             "price": 3000
         },
         {
@@ -14,7 +18,7 @@
         },
         {
             "name": "主板",
-            "price": 1000
+            "price": 1500
         }
     ]
 }

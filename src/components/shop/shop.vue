@@ -21,9 +21,30 @@
                 <span>{{ shopCart.name }}</span>
                 <span>数量:{{ shopCart.num }}</span>
                 <span>总价: {{  shopCart.totalPrice }}</span>
-
             </li>
         </ul>
+
+        <section v-if="expensive.length > 0">
+            <h3 style="marginTop: 50px;">下面的是单价比较贵的</h3>
+            <ul class="shopCart expensive">
+                <li v-for="exp in expensive" :key="exp.name">
+                    <span>{{ exp.name }}</span>
+                    <span>单价: {{  exp.price }}</span>
+                </li>
+            </ul>
+
+        </section>
+
+        <section v-if="moreExpensive.length > 0">
+            <h3 style="marginTop: 50px;">下面的是从比较贵的中筛选出更贵的</h3>
+            <ul class="shopCart more_expensive">
+                <li v-for="mexp in moreExpensive" :key="mexp.name">
+                    <span>{{ mexp.name }}</span>
+                    <span>单价: {{  mexp.price }}</span>
+                </li>
+            </ul>
+        </section>
+
 
 
     </div>
@@ -32,6 +53,8 @@
 <script>
 import mock from './mock.JSON'
 import * as types from '../../store/mutation-types'
+import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {    
     name: 'shop',
     data () {
@@ -61,12 +84,26 @@ export default {
         },
     },
     computed: {
-        totalPrice (){
-            return this.$store.state.totalPrice;
-        },
-        shopCartList (){
-            return this.$store.state.shopCartList;
-        }
+        // totalPrice() {
+        //     return this.$store.state.totalPrice;
+        // },
+        // shopCartList() {
+        //     return this.$store.state.shopCartList;
+        // },
+        // expensive() {
+        //     return this.$store.getters.expensive;
+        // },
+        // moreExpensive() {
+        //     return this.$store.getters.moreExpensive;
+        // },
+        ...mapState([
+            'totalPrice',
+            'shopCartList'
+        ]),
+        ...mapGetters([
+            'expensive',
+            'moreExpensive'
+        ])
     },
     created () {
         this.allParts = mock.allParts;
@@ -140,6 +177,12 @@ export default {
     }
     ul.shopCart {
         flex-direction: column;
+    }
+    .expensive{
+        color: #d30775;
+    }
+    .more_expensive{
+        color: #f86442;
     }
 </style>
 
